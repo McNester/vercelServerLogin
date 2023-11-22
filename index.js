@@ -23,7 +23,7 @@ app.post('/', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    res.status(201).send('Inside try method');
+
     const result = await pool.query('SELECT * FROM profile WHERE email = $1', [email]);
     if (result.rows.length > 0) {
       const user = result.rows[0];
