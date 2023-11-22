@@ -30,7 +30,9 @@ app.post('/', async (req, res) => {
 
       //const match = await bcrypt.compare(password, user.password);
       //if (match) {
-        if (password == user.password) {
+      if (password == user.password) {
+        console.log(password);
+        console.log(user.password);
         res.status(200).send('Login successful');
       } else {
         res.status(401).send('Password is incorrect');
