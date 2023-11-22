@@ -1,6 +1,6 @@
 const express = require('express');
 const { Pool } = require('pg');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
@@ -28,8 +28,9 @@ app.post('/', async (req, res) => {
     if (result.rows.length > 0) {
       const user = result.rows[0];
 
-      const match = await bcrypt.compare(password, user.password);
-      if (match) {
+      //const match = await bcrypt.compare(password, user.password);
+      //if (match) {
+        if (password == user.password) {
         res.status(200).send('Login successful');
       } else {
         res.status(401).send('Password is incorrect');
